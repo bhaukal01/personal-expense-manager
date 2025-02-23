@@ -118,17 +118,17 @@ function Dashboard() {
                   </td> */}
                   <td>{expense.date}</td>
                   <td>
-                    <button className="btn btn-danger mx-1">
+                    <button className="btn btn-sm">
                       <img
                         width={20}
-                        src="https://img.icons8.com/?size=100&id=4U14q1ay1DnU&format=png&color=000000"
+                        src="https://img.icons8.com/?size=100&id=4U14q1ay1DnU&format=png&color=FF0000"
                         alt="Delete"
                       />
                     </button>
-                    <button className="btn btn-info">
+                    <button className="btn btn-sm">
                       <img
                         width={20}
-                        src="https://img.icons8.com/?size=100&id=oR5tfd18Ei7C&format=png&color=000000"
+                        src="https://img.icons8.com/?size=100&id=oR5tfd18Ei7C&format=png&color=0000FF"
                         alt="Edit"
                       />
                     </button>
