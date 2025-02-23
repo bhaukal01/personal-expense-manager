@@ -68,19 +68,43 @@ function Dashboard() {
           <h5>Incomes</h5>
         </div>
         <div className="card-body">
-          <ul className="list-group">
-            {incomes.map((income) => (
-              <li
-                key={income.id}
-                className="list-group-item d-flex justify-content-between"
-              >
-                <span>
-                  {income.source} - ₹{income.amount}
-                </span>
-                <small>{income.date}</small>
-              </li>
-            ))}
-          </ul>
+          <div className="table-responsive">
+            <table className="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Source</th>
+                  <th>Amount (₹)</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {incomes.map((income) => (
+                  <tr key={income.id}>
+                    <td>{income.source}</td>
+                    <td>₹{income.amount}</td>
+                    <td>{income.date}</td>
+                    <td>
+                      <button className="btn btn-sm">
+                        <img
+                          width={20}
+                          src="https://img.icons8.com/?size=100&id=4U14q1ay1DnU&format=png&color=FF0000"
+                          alt="Delete"
+                        />
+                      </button>
+                      <button className="btn btn-sm">
+                        <img
+                          width={20}
+                          src="https://img.icons8.com/?size=100&id=oR5tfd18Ei7C&format=png&color=0000FF"
+                          alt="Edit"
+                        />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -90,25 +114,26 @@ function Dashboard() {
           <h5>Expenses</h5>
         </div>
         <div className="card-body">
-          <table className="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Amount (₹)</th>
-                {/* <th>Description</th> */}
-                <th>Date</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {expenses.map((expense) => (
-                <tr key={expense.id}>
-                  {/* <div className="tooltip-container">
+          <div className="table-responsive">
+            <table className="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Amount (₹)</th>
+                  {/* <th>Description</th> */}
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {expenses.map((expense) => (
+                  <tr key={expense.id}>
+                    {/* <div className="tooltip-container">
                     <div className="tooltip-text">{expense.description}</div>
                   </div> */}
-                  <td>{expense.category}</td>
-                  <td>₹{expense.amount}</td>
-                  {/* <td>
+                    <td>{expense.category}</td>
+                    <td>₹{expense.amount}</td>
+                    {/* <td>
                     <span className="tooltip-container">
                       {expense.description}
                       <span className="tooltip-text">
@@ -116,27 +141,28 @@ function Dashboard() {
                       </span>
                     </span>
                   </td> */}
-                  <td>{expense.date}</td>
-                  <td>
-                    <button className="btn btn-sm">
-                      <img
-                        width={20}
-                        src="https://img.icons8.com/?size=100&id=4U14q1ay1DnU&format=png&color=FF0000"
-                        alt="Delete"
-                      />
-                    </button>
-                    <button className="btn btn-sm">
-                      <img
-                        width={20}
-                        src="https://img.icons8.com/?size=100&id=oR5tfd18Ei7C&format=png&color=0000FF"
-                        alt="Edit"
-                      />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                    <td>{expense.date}</td>
+                    <td>
+                      <button className="btn btn-sm">
+                        <img
+                          width={20}
+                          src="https://img.icons8.com/?size=100&id=4U14q1ay1DnU&format=png&color=FF0000"
+                          alt="Delete"
+                        />
+                      </button>
+                      <button className="btn btn-sm">
+                        <img
+                          width={20}
+                          src="https://img.icons8.com/?size=100&id=oR5tfd18Ei7C&format=png&color=0000FF"
+                          alt="Edit"
+                        />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

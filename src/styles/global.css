@@ -38,3 +38,7 @@ h2 {
   visibility: visible;
   opacity: 1;
 }
+
+.table-div {
+  overflow-x: auto;
+}

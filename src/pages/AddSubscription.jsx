@@ -122,43 +122,45 @@ function AddSubscription() {
       {subscriptions.length === 0 ? (
         <p>No subscriptions added yet.</p>
       ) : (
-        <table className="table table-striped table-hover mt-3">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Amount (₹)</th>
-              <th>Start Date</th>
-              <th>Schedule</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {subscriptions.map((sub) => (
-              <tr key={sub.id}>
-                <td>{sub.name}</td>
-                <td>₹{sub.amount}</td>
-                <td>{sub.startDate}</td>
-                <td>{sub.schedule}</td>
-                <td>
-                  <button className="btn btn-sm">
-                    <img
-                      width={20}
-                      src="https://img.icons8.com/?size=100&id=4U14q1ay1DnU&format=png&color=FF0000"
-                      alt="Delete"
-                    />
-                  </button>
-                  <button className="btn btn-sm">
-                    <img
-                      width={20}
-                      src="https://img.icons8.com/?size=100&id=oR5tfd18Ei7C&format=png&color=0000FF"
-                      alt="Edit"
-                    />
-                  </button>
-                </td>
+        <div className="table-responsive">
+          <table className="table table-striped table-hover mt-3">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Amount (₹)</th>
+                <th>Start Date</th>
+                <th>Schedule</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {subscriptions.map((sub) => (
+                <tr key={sub.id}>
+                  <td>{sub.name}</td>
+                  <td>₹{sub.amount}</td>
+                  <td>{sub.startDate}</td>
+                  <td>{sub.schedule}</td>
+                  <td>
+                    <button className="btn btn-sm">
+                      <img
+                        width={20}
+                        src="https://img.icons8.com/?size=100&id=4U14q1ay1DnU&format=png&color=FF0000"
+                        alt="Delete"
+                      />
+                    </button>
+                    <button className="btn btn-sm">
+                      <img
+                        width={20}
+                        src="https://img.icons8.com/?size=100&id=oR5tfd18Ei7C&format=png&color=0000FF"
+                        alt="Edit"
+                      />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );
