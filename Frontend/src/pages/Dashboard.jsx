@@ -4,6 +4,8 @@ function Dashboard() {
   const [incomes, setIncomes] = useState([]);
   const [expenses, setExpenses] = useState([]);
   const [balance, setBalance] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredExpenses, setFilteredExpenses] = useState([]);
 
   useEffect(() => {
     //hard coded dummy data till backend is ready
@@ -34,11 +36,25 @@ function Dashboard() {
         date: "2025-02-12",
         description: "Electricity and water bill",
       },
+      {
+        id: 4,
+        category: "Groceries",
+        amount: 2500,
+        date: "2025-02-18",
+        description: "Weekly grocery shopping",
+      },
+      {
+        id: 5,
+        category: "Entertainment",
+        amount: 1000,
+        date: "2025-02-20",
+        description: "Movie tickets",
+      },
     ];
 
     setIncomes(sampleIncomes);
     setExpenses(sampleExpenses);
-
+    setFilteredExpenses(sampleExpenses);
     const totalIncome = sampleIncomes.reduce(
       (sum, item) => sum + item.amount,
       0
@@ -50,6 +66,15 @@ function Dashboard() {
 
     setBalance(totalIncome - totalExpense);
   }, []);
+
+  useEffect(() => {
+    const results = expenses.filter(
+      (expense) =>
+        expense.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        expense.description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredExpenses(results);
+  }, [searchTerm, expenses]);
 
   return (
     <div className="">
@@ -114,33 +139,28 @@ function Dashboard() {
           <h5>Expenses</h5>
         </div>
         <div className="card-body">
+          <input
+            type="text"
+            placeholder="Search your expenses"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="form-control mb-3"
+          />
           <div className="table-responsive">
             <table className="table table-striped table-hover">
               <thead>
                 <tr>
                   <th>Category</th>
                   <th>Amount (₹)</th>
-                  {/* <th>Description</th> */}
                   <th>Date</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {expenses.map((expense) => (
+                {filteredExpenses.map((expense) => (
                   <tr key={expense.id}>
-                    {/* <div className="tooltip-container">
-                    <div className="tooltip-text">{expense.description}</div>
-                  </div> */}
                     <td>{expense.category}</td>
                     <td>₹{expense.amount}</td>
-                    {/* <td>
-                    <span className="tooltip-container">
-                      {expense.description}
-                      <span className="tooltip-text">
-                        {expense.description}
-                      </span>
-                    </span>
-                  </td> */}
                     <td>{expense.date}</td>
                     <td>
                       <button className="btn btn-sm">
