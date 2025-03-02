@@ -2,7 +2,9 @@
 
 ## Vite + React
 
-## Run Locally
+# Run Locally
+
+## Frontend
 
 Clone the project
 
@@ -13,7 +15,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd ./personal-expense-manager/Frontend
 ```
 
 Install dependencies
