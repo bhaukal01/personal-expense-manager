@@ -15,7 +15,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd /personal-expense-manager/Frontend
+  cd ./personal-expense-manager/Frontend
 ```
 
 Install dependencies
